@@ -101,17 +101,17 @@ if __name__ == "__main__":
     # context_one_many(models=models, img_path=img_path)
 
     # 三、生成一张图片的base64的编码
-    # # 要生成json数据的图片的路径
-    # img_path = "../database/ZhangHanyun/3.jpg"
-    # # 生成需要的json数据
-    # context_one_base64(img_path=img_path)
+    # 要生成json数据的图片的路径
+    img_path = "../database/ZhangHanyun/3.jpg"
+    # 生成需要的json数据
+    context_one_base64(img_path=img_path)
 
 
-    # 临时测试（测完删掉）
-    img_name = "test.jpg"
-    img_save_path = "../savePictures/"
-    # 文件读取
-    f = open("../input.txt")
-    imgBase64 = f.readline()
-    img_base64.base64_to_img(img_name=img_name, img_save_path=img_save_path, img_base64=imgBase64)
-    print("运行结束！")
+    # # 临时测试（测完删掉）
+    # img_name = "test.jpg"
+    # img_save_path = "../savePictures/"
+    # # 文件读取
+    # f = open("../input.txt")
+    # imgBase64 = f.readline()
+    # img_base64.base64_to_img(img_name=img_name, img_save_path=img_save_path, img_base64=imgBase64)
+    # print("运行结束！")

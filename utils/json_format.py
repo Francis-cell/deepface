@@ -67,7 +67,7 @@ def json_format_find_out(arr):
 def json_format_getBase64Code(img_name, img_base64):
     last_values = {
         "photoName" : img_name,
-        "base64Code" : [img_base64]
+        "base64Code" : img_base64
     }
 
     # 将last_values的值格式化为json标准形式，并返回

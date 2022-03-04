@@ -1,6 +1,7 @@
 # coding=gbk
 import warnings
 import sys
+import json
 
 sys.path.append('..')
 from utils import img_base64 as ib64
@@ -390,17 +391,21 @@ def findWrapper(req, trx_id=0):
     return last_value
 
 # ================接收并处理来自后台的图片的base64编码==============
-@app.route('/getBase64Code', methods=['POST'])
+@app.route('/savePicture', methods=['POST'])
 def get_base64_code():
-    req = request.get_json()
+    # req = request.get_json()
+    req = request.get_data()
 
     # ------------保存图片--------------
     try:
         # 1、接收到后端传来的图片的base64的编码
         # print("req的值是：", req)
-        req_base64 = str(req.get("base64Code")).split("\'")[1]
+        val = "{" + str(req).split("{")[1][:-1]
+        valJson = json.loads(val)
+        req_base64 = str(valJson.get("base64Code"))
+        # print("req_base64的值是：", req_base64)
         # 获取图片的名称
-        img_name = str(req.get("photoName")) + ".jpg"
+        img_name = str(valJson.get("photoName")) + ".jpg"
         # 指定图片保存路径
         img_save_path = "../facePictures/"
 
