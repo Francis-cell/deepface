@@ -307,7 +307,12 @@ def find():
     global graph
 
     tic = time.time()
-    req = request.get_json()
+    # req = request.get_json()
+
+    req = request.get_data()
+    print(req)
+    req = json.loads(req)
+
     trx_id = uuid.uuid4()
 
     resp_obj = jsonify({'success': False})
@@ -335,25 +340,22 @@ def findWrapper(req, trx_id=0):
     distance_metric = "cosine"
 
     if "model_name" in list(req.keys()):
-        model_name = req["model_name"]
+        model_name = req["modelName"]
     if "db_path" in list(req.keys()):
-        db_path = req["db_path"]
+        db_path = req["dbPath"]
     if "distance_metric" in list(req.keys()):
-        distance_metric = req["distance_metric"]
+        distance_metric = req["distanceMetric"]
 
     # ----------------------
     instances = []
     if "img" in list(req.keys()):
         raw_content = req["img"]  # list
-
-        for item in raw_content:  # item is in type of dict
-            item = item.split(",")[1]
-            # base64½âÂë
-            img_name = "img.jpg"
-            img_save_path = "../savePictures/"
-            ib64.base64_to_img(img_Name=img_name, img_save_path=img_save_path, img_base64=item)
-            instances.append(item)
-            img_after_path = "../savePictures/img.jpg"
+        item = raw_content.split(",")[1]
+        img_name = "img.jpg"
+        img_save_path = "../savePictures/"
+        ib64.base64_to_img(img_name=img_name, img_save_path=img_save_path, img_base64=item)
+        instances.append(item)
+        img_after_path = "../savePictures/img.jpg"
 
     if len(instances) == 0:
         return jsonify({'success': False, 'error': 'you must pass at least one img object in your request'})

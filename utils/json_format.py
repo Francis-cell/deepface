@@ -27,8 +27,8 @@ def json_format(model, img1_base64, img2_base64):
 
 def json_format_find(model, img_base64):
     last_values = {
-        "model_name": model,
-        "img": [img_base64]
+        "modelName": model,
+        "img": img_base64
     }
 
     # 将last_values的值格式化为json标准形式，并返回

@@ -91,20 +91,20 @@ if __name__ == "__main__":
     # img2_path = "../database/ZhangHanyun/2.jpg"
     # context_pair_pictures(img1_path=img1_path, img2_path=img2_path, models=models[0])
 
-    # # 二、将一张图片在一组图片中寻找最相似的结果
-    # # models = ["VGG-Face", "Facenet"]
-    # models = ["VGG-Face", "Facenet", "OpenFace", "DeepFace"]
-    # # 要比对的图片的路径
-    # img_path = "../database/ZhangHanyun/3.jpg"
-    # # 要被比对的大量的图片的存储路径
-    # # imgs_path = "../database/ZhangHanyun/"
-    # context_one_many(models=models, img_path=img_path)
+    # 二、将一张图片在一组图片中寻找最相似的结果
+    # models = ["VGG-Face", "Facenet"]
+    models = ["VGG-Face", "Facenet", "OpenFace", "DeepFace"]
+    # 要比对的图片的路径
+    img_path = "../facePictures/1234507.jpg"
+    # 要被比对的大量的图片的存储路径
+    # imgs_path = "../database/ZhangHanyun/"
+    context_one_many(models=models[0], img_path=img_path)
 
-    # 三、生成一张图片的base64的编码
-    # 要生成json数据的图片的路径
-    img_path = "../database/ZhangHanyun/3.jpg"
-    # 生成需要的json数据
-    context_one_base64(img_path=img_path)
+    # # 三、生成一张图片的base64的编码
+    # # 要生成json数据的图片的路径
+    # img_path = "../database/ZhangHanyun/3.jpg"
+    # # 生成需要的json数据
+    # context_one_base64(img_path=img_path)
 
 
     # # 临时测试（测完删掉）
